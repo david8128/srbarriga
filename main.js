@@ -21,6 +21,9 @@ function saveToExcel(data, filePath) {
 }
 
 // Handler for 'save-data' IPC event
+const fs = require('fs');
+
+// Handler for 'save-data' IPC event
 ipcMain.handle('save-data', async (event, data) => {
   try {
     // Convert the data to a JSON string
@@ -28,6 +31,11 @@ ipcMain.handle('save-data', async (event, data) => {
 
     // Get the path to the file where data will be saved
     const filePath = getFilePath();
+
+    // Check if the file exists, if not, create it
+    if (!fs.existsSync(filePath)) {
+      fs.writeFileSync(filePath, '', 'utf8');
+    }
 
     // Save the data asynchronously
     await saveData(filePath, dataString);
