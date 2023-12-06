@@ -1,0 +1,17 @@
+{
+  "name": "mi-proyecto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^28.0.0",
+    "fs": "^0.0.1-security",
+    "xlsx": "^0.18.5"
+  }
+}

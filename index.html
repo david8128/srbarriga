@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>App de Cobros</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <input type="file" id="excel-file" accept=".xlsx,.xls">
+        <div id="Valores Contadores">
+            <p id="water-meter401-last">Agua Apto 401, última lectura: </p><input type="text" id="water-meter401"
+                placeholder="Agua Apto 401">
+            <p id="water-meter402-last">Agua Apto 402, última lectura: </p><input type="text" id="water-meter402"
+                placeholder="Agua Apto 402">
+            <p id="electricity-meter402-last">Electricidad Apto 402, última lectura: </p><input type="text"
+                id="electricity-meter402" placeholder="Electricidad Apto 402">
+            <p id="electricity-meter401-last">Electricidad Apto 401, última lectura: </p><input type="text"
+                id="electricity-meter401" placeholder="Electricidad Apto 401">
+            <p id="gas-meter401-last">Gas Apto 401, última lectura: </p><input type="text" id="gas-meter401"
+                placeholder="Gas Apto 401">
+            <p id="gas-meter402-last">Gas Apto 402, última lectura: </p><input type="text" id="gas-meter402"
+                placeholder="Gas Apto 402">
+            <p id="water-meter302-last">Agua Apto 302, última lectura: </p><input type="text" id="water-meter302"
+                placeholder="Agua Apto 302">
+            <p id="water-meter201-last">Agua Apto 201, última lectura: </p><input type="text" id="water-meter201"
+                placeholder="Agua Apto 201">
+            <p id="gas-meter2-last">Gas Piso 2, última lectura: </p><input type="text" id="gas-meter2"
+                placeholder="Gas Piso 2">
+            <p id="gas-meter34-last">Gas Pisos 3 y 4, última lectura: </p><input type="text" id="gas-meter34"
+                placeholder="Gas Pisos 3 y 4">
+            <p id="water-meter2-last">Agua Piso 2, última lectura: </p><input type="text" id="water-meter2"
+                placeholder="Agua Piso 2">
+            <p id="electricity-meter201-last">Electricidad Apto 201, última lectura: </p><input type="text"
+                id="electricity-meter201" placeholder="Electricidad Apto 201">
+            <p id="electricity-meter4-last">Electricidad Piso 4, última lectura: </p><input type="text"
+                id="electricity-meter4" placeholder="Electricidad Piso 4">
+            <p id="electricity-meter3-last">Electricidad Piso 3, última lectura: </p><input type="text"
+                id="electricity-meter3" placeholder="Electricidad Piso 3">
+            <p id="electricity-meter2-last">Electricidad Piso 2, última lectura: </p><input type="text"
+                id="electricity-meter2" placeholder="Electricidad Piso 2">
+            <p id="water-meter301-last">Agua Apto 301, última lectura: </p><input type="text" id="water-meter301"
+                placeholder="Agua Apto 301">
+        </div>
+        <input type="text" id="cost-water-meter" placeholder="Costo por m3 de Agua">
+        <input type="text" id="cost-water-meter-fijo" placeholder="Costo fijo de Agua">
+        <input type="text" id="cost-electricity-meter" placeholder="Costo kWh Electricidad">
+        <input type="text" id="cost-gas-meter" placeholder="Costo por m3 de Gas">
+        <input type="text" id="cost-gas-meter-fijo" placeholder="Costo fijo de Gas">
+        <p>Costo servicios Apto 401: </p>
+        <p id="cost-water401">Costo agua Apto 401: </p>
+        <p id="cost-electricity401">Costo energía Apto 401: </p>
+        <p id="cost-gas401">Costo gas Apto 401: </p>
+        <button id="whatsapp-button">Enviar mensaje de WhatsApp</button>
+
+        <script>
+            const { shell } = require('electron');
+            document.addEventListener('DOMContentLoaded', (event) => {
+                document.getElementById('whatsapp-button').addEventListener('click', function () {
+                    let consumoWater401 = document.getElementById('cost-water401').textContent;
+                    let consumoElectricity401 = document.getElementById('cost-electricity401').textContent;
+                    let consumoGas401 = document.getElementById('cost-gas401').textContent;
+                    const text = encodeURIComponent(consumoWater401 + "\n" + consumoElectricity401 + "\n" + consumoGas401);
+                    console.log(text);
+                    shell.openExternal('https://wa.me/573223114397?text=' + text);
+                });
+            });
+        </script>
+        <p>Costo servicios Apto 402: </p>
+        <p id="cost-water402">Costo agua Apto 402: </p>
+        <p id="cost-electricity402">Costo energía Apto 402: </p>
+        <p id="cost-gas402">Costo gas Apto 402: </p>
+        <p>Costo servicios Apto 302: </p>
+        <p id="cost-water302">Costo agua Apto 302: </p>
+        <p>Costo servicios Apto 201: </p>
+        <p id="cost-water201">Costo agua Apto 201: </p>
+        <p id="cost-electricity201">Costo energía Apto 201: </p>
+        <p>Costo servicios Apto 202: </p>
+        <p id="cost-water202">Costo agua Apto 202: </p>
+        <button id="save">Guardar Datos</button>
+        <button id="calculate">Calcular</button>
+        <button id="retrieve">Leer Datos Anteriores</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
