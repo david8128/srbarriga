@@ -36,7 +36,6 @@ ipcMain.handle('save-data', async (event, data) => {
 
     // Save the data asynchronously
     await saveData(filePath, dataString);
-    await saveData(path.join(__dirname, 'data.json'), dataString);
 
     // Optionally, send a response back to the renderer process
     // event.sender.send('data-saved', 'Data saved successfully');
