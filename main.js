@@ -21,9 +21,6 @@ function saveToExcel(data, filePath) {
 }
 
 // Handler for 'save-data' IPC event
-const fs = require('fs');
-
-// Handler for 'save-data' IPC event
 ipcMain.handle('save-data', async (event, data) => {
   try {
     // Convert the data to a JSON string
