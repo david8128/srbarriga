@@ -46,8 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
             gasMeter2: gasMeter2,
             gasMeter34: gasMeter34,
             gasMeter401: gasMeter401,
-            gasMeter402: gasMeter402,
-            costElectricity401: costElectricity401
+            gasMeter402: gasMeter402
         };
 
         // Enviar los datos al proceso principal para guardarlos
